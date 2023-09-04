@@ -1,32 +1,18 @@
-# passwordstore_keyring_example
-Example setup of passwordstore, including keyring backend
+# password-store examples, including keyring
 
-## initial notes from various places
+## Motivation
+When we keep secrets (database passwords, cloud credentials, etc.) on local computers, there is a possibility of accidentially leaking those to code repositories or other locations. For many years, I have used [Python keyring](https://pypi.org/project/keyring/), which is great. `keyring` integrates well with the default credential stores on MacOS and Windows. However, it has dependencies in Linux that make it difficult to use, expecially in docker. Recently, I adopted [pass](https://www.passwordstore.org/) for all environments. Although it doesn't integrate with the desktop credential stores, it works consistently across all platforms (using WSL for Windows), including within docker containers. 
 
-### install pass
-git clone https://git.zx2c4.com/password-store
-make install
+## Examples in this repo
+### Generally
+As mentioned above, [pass](https://www.passwordstore.org/) works well in docker containers. In order to facilitate reproducibility of these examples, I'll use a basic docker setup, which is detailed as part of [example_1](./example_1/).
 
-### keyring setup
-After artifactory is set, run 
-```
-pip install keyring
-pip install keyring-pass
-```
+### [example_1](./example_1/)
 
-```
->$ cat ~/.config/python_keyring/keyringrc.cfg
-[backend]
-default-keyring = keyring_pass.PasswordStoreBackend
+### [example_2](./example_2/) - 
 
-[pass]
-key-prefix=.
-binary=/usr/bin/pass
-```
+### [example_3](./example_3/) - 
 
-### resources
-https://www.passwordstore.org/
-https://medium.com/@chasinglogic/the-definitive-guide-to-password-store-c337a8f023a1
-https://pypi.org/project/keyring-pass/
+### [example_4](./example_4/) - 
 
-https://github.com/chasets/devcontainer -- private
+

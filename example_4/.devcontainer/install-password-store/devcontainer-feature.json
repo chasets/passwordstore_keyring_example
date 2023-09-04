@@ -1,0 +1,17 @@
+{
+    "name": "Install pass",
+    "id": "install-password-store",
+    "version": "0.0.1",
+    "description": "Install pass: the standard unix password manager and mount host directory",
+
+    "mounts": [
+        {
+            "source": "./example_password-store",
+            "target": "/home/vscode/.password-store",
+            "type": "bind"
+        }
+    ],
+    "installsAfter": [
+      "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
